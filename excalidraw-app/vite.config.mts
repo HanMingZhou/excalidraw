@@ -9,10 +9,12 @@ import Sitemap from "vite-plugin-sitemap";
 import { woff2BrowserPlugin } from "../scripts/woff2/woff2-vite-plugins";
 
 export default defineConfig(({ mode }) => {
+
   // To load .env variables
   const envVars = loadEnv(mode, `../`);
   // https://vitejs.dev/config/
   return {
+    base: './', // 使用相对路径
     server: {
       port: Number(envVars.VITE_APP_PORT || 3000),
       // open the browser
